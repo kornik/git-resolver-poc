@@ -17,6 +17,4 @@ spec:
       - image: alpine:3.15
         script: |
           echo "hello $(params.username)"
-      - image: alpine:3.15
-        script: |
-          echo "Testing $(params.username)"
+
