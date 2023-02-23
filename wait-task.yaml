@@ -23,5 +23,5 @@ spec:
         echo $(params.TARGET_URL)
         
         echo "this step is still running"
-        sleep 120
+        sleep 20
         echo "wake up"
