@@ -1,0 +1,27 @@
+apiVersion: tekton.dev/v1beta1
+kind: Task
+metadata:
+  name: wait
+spec:
+  params:
+  - description: |
+        The target URL to associate with this status. This URL will be linked
+        from the GitHub UI to allow users to easily see the sou
+    name: TARGET_URL
+    type: string
+    default: "dupa"
+  steps:
+    - env:
+        - name: TARGET_URL
+          value: $(params.TARGET_URL)
+      name: wait
+      image: alpine
+      script: |
+        #!/bin/sh
+        
+        set -ex
+        echo $(params.TARGET_URL)
+        
+        echo "this step is still running"
+        sleep 120
+        echo "wake up"
