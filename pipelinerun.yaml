@@ -1,0 +1,19 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  generateName: git-clone-demo-pr-
+spec:
+  serviceAccountName: default
+  pipelineRef:
+    resolver: git
+    params:
+      - name: url
+        value: https://github.com/kornik/git-resolver-poc.git
+      - name: revision
+        value: main
+      - name: pathInRepo
+        value: hello-task.yaml
+    
+  params:
+  - name: username
+    value: Ranni
